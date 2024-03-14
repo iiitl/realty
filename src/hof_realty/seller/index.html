@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./seller.css" />
+  </head>
+  <body>
+    <div id="main_container">
+      <div id="container1">
+        <div id="container1_form">
+          <form id="forms">
+            <!--here is the personal section-->
+            <div class="forms" id="personal_info">
+              <h2 class="section_heading">CONTACT INFO</h2>
+              <div class="user-box">
+                <input type="text" required="" id="name" />
+                <label>Name</label>
+              </div>
+              <div class="user-box">
+                <input type="email" required="" id="email" />
+                <label>Email</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="ph_number" />
+                <label>Phone number</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="proptype" />
+                <label>Property Type</label>
+              </div>
+              <div id="continue_btn">Continue</div>
+            </div>
+            <!--here is the property section-->
+            <div class="forms" id="property_info">
+              <h2 class="section_heading">PROPERTY INFO</h2>
+              <div class="user-box">
+                <input type="text" id="addline" required="" />
+                <br>
+                <label>Address Line</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="city" />
+                <br>
+                <label>City</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="country" />
+                <br>
+                <label>Country</label>
+              </div>
+              <div id="submit_back_setion">
+                <div id="next_btn">Continue</div>
+              </div>
+            </div>
+            <!-- Here is Rest Info -->
+            <div class="forms" id="rest_info">
+                <h2 class="section_heading">REST INFO</h2>
+                <div class="user-box">
+                  <input type="text" required="" id="amenities" />
+                  <br>
+                  <label>Amenities</label>
+                </div>
+                <div class="user-box">
+                  <input type="text" required="" id="sqfoot" />
+                  <br>
+                  <label>Square Footage</label>
+                </div>
+                <div class="user-box">
+                  <input type="text" required="" id="bedno" />
+                  <br>
+                  <label>Number of Bedrooms</label>
+                </div>
+                <div class="user-box" id="image-container">
+                    <form>
+                      <label for="imageInput">Choose an image to upload:</label>
+                      <br><br>
+                      <input type="file" id="imageInput" accept="image/*">
+                      <button type="button" onclick="uploadImage()">Upload Image</button>
+                      <div id="display_image">
+                        <div class="image-container"></div>
+                      </div>
+                    </form>            
+                </div>
+                <div class="user-box" id="description">
+                    <label>Description of House:</label>
+                    <br><br><br>
+                    <textarea id="describe" name="message" rows="10" cols="30" required></textarea>
+                </div>
+                <div class="user-box">
+                    <input type="text" id="listing_price" required/>
+                    <br>
+                    <br>
+                    <label>Listing Price:</label>
+                </div>
+                <div id="submit_back_setion">
+                    <button type="submit" id="submit_btn">Submit</button>=
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.3.0/ethers.umd.min.js"
+    type="application/javascript">
+    </script>
+    <script src="./seller.js"></script>
+  </body>
+</html>

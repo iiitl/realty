@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="main_container">
+      <div id="container1">
+        <div id="container1_form">
+          <form>
+            <!--here is the personal section-->
+            <div class="forms" id="personal_info">
+              <h2 class="section_heading">Personal Info</h2>
+              <div class="user-box">
+                <input type="text" required="" id="name" />
+                <label>Name</label>
+              </div>
+              <div class="user-box">
+                <input type="email" required="" id="email" />
+                <label>Email</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="ph_number" />
+                <label>Phone number</label>
+              </div>
+              <div id="continue_btn">Continue</div>
+            </div>
+            <!--here is the property sectio-->
+            <div class="forms" id="property_info">
+              <h2 class="section_heading">Property Info</h2>
+              <div class="user-box">
+                <input type="text" id="city" required="" />
+                <label>City Preference</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="max_price" />
+                <label>Upper Price Limit</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="min_price" />
+                <label>Lower Price Limit</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="bedroom_count" />
+                <label>Bedroom Count</label>
+              </div>
+              <div class="user-box">
+                <input type="text" required="" id="foot_size" />
+                <label>Foot Size</label>
+              </div>
+              <div id="submit_back_setion">
+                <div id="back_btn">Go Back</div>
+                <button type="submit" id="submit_btn">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div id="container2"></div>
+    </div>
+    <script>
+      ((g) => {
+        var h,
+          a,
+          k,
+          p = "The Google Maps JavaScript API",
+          c = "google",
+          l = "importLibrary",
+          q = "__ib__",
+          m = document,
+          b = window;
+        b = b[c] || (b[c] = {});
+        var d = b.maps || (b.maps = {}),
+          r = new Set(),
+          e = new URLSearchParams(),
+          u = () =>
+            h ||
+            (h = new Promise(async (f, n) => {
+              await (a = m.createElement("script"));
+              e.set("libraries", [...r] + "");
+              for (k in g)
+                e.set(
+                  k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+                  g[k]
+                );
+              e.set("callback", c + ".maps." + q);
+              a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+              d[q] = f;
+              a.onerror = () => (h = n(Error(p + " could not load.")));
+              a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+              m.head.append(a);
+            }));
+        d[l]
+          ? console.warn(p + " only loads once. Ignoring:", g)
+          : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+      })({ key: "add_own_api_key", v: "beta" });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.3.0/ethers.umd.min.js"
+    type="application/javascript">
+    </script>
+    <script src="./buyer.js"></script>
+   
+  </body>
+</html>

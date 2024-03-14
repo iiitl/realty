@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+#main_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#container1 {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container1_form {
+  width: 30%;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 30px;
+  max-height: 700px;
+}
+.forms {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.user-box {
+  position: relative;
+}
+.user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+input {
+  width: 300px;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.section_heading {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+#submit_back_setion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#continue_btn,
+#submit_btn,
+#back_btn {
+  margin: 20px;
+  padding: 10px 30px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #141e31;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+}
+#continue_btn:hover,
+#submit_btn:hover,
+#back_btn:hover {
+  background-color: #141e31;
+  color: white;
+}
+#property_info {
+  display: none;
+}
+#submit_btn {
+  font-size: 1rem;
+}
+@media screen and (max-width: 1200px) {
+  #container1_form {
+    width: 40%;
+    max-height: 700px;
+  }
+}
+@media screen and (max-width: 900px) {
+  #container1_form {
+    width: 50%;
+    max-height: 800px;
+  }
+}
+@media screen and (max-width: 800px) {
+  #container1_form {
+    width: 60%;
+    max-height: 600px;
+  }
+}
+@media screen and (max-width: 800px) {
+  #container1_form {
+    width: 60%;
+    max-height: 600px;
+  }
+}
+@media screen and (max-width: 663px) {
+  #container1_form {
+    width: 60%;
+    max-height: 600px;
+  }
+  input {
+    width: 260px;
+  }
+  #back_btn,
+  #submit_btn {
+    font-size: 0.8rem;
+  }
+  .user-box label {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 623px) {
+  #back_btn,
+  #submit_btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 550px) {
+  #container1_form {
+    width: 65%;
+    max-height: 600px;
+  }
+  input {
+    max-width: 240px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #back_btn,
+  #submit_btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 450px) {
+  input {
+    max-width: 240px;
+  }
+  .forms {
+    padding: 20px;
+  }
+  #container1_form {
+    width: 80%;
+    max-height: 600px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  input {
+    max-width: 240px;
+  }
+  .forms {
+    padding: 20px;
+  }
+  #container1_form {
+    width: 85%;
+    max-height: 600px;
+  }
+}
+#container2 {
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(#141e30, #243b55);
+  width: 100%;
+}
+#container2 {
+  background: linear-gradient(#141e30, #243b55);
+  
+  padding: 30px;
+  color: #fff;
+}
+.house {
+  margin:20px;
+  display: flex;
+  padding:0px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 900px;
+  border-radius: 10px;
+  border: 2px solid white;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.visible {
+  height:100%;
+  width:100%;
+  padding:0px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+}
+.hidden {
+  height:100%;
+  width:100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.image_div {
+  margin:0px;
+  padding:0px;
+  width: 45%;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius:10px;
+}
+
+
+.image_div .image {
+  margin:0px;
+  padding:0px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius:10px;
+}
+
+.div_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap:25px;
+}
+
+.visible_content {
+  height:100%;
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: flex-start;
+  margin:10px;
+ 
+}
+.visible_content_heading {
+  font-weight: 500;
+  font-size: 33px;
+  margin:10px;
+ 
+}
+.visible_content p {
+  font-size: 16px;
+  color: darkgrey;
+  margin:5px;
+}
+.visible_content h2 {
+  font-size: 19px;
+  color: white;
+  font-weight: 400;
+}
+
+.show_more_btn,
+.show_less_btn, .cancel_btn, .buy_btn {
+  padding:5px 10px;
+  border-radius:20px;
+ margin:10px;
+ font-size: 20px;
+ font-weight: 400;
+  border: none;
+  font-family: "Raleway", sans-serif;
+  background-color: #243b55;
+  color:white;
+}
+.show_more_btn:hover, .show_less_btn:hover, .cancel_btn:hover, .buy_btn:hover{
+  background-color: #fff;
+  color: #141e30;
+}
+.hidden {
+ 
+  margin-bottom:20px;
+  flex-direction: column;
+  align-items:center;
+  justify-content:space-evenly;
+}
+
+.map_add {
+  width: 100%;
+  height:300px;
+  margin: 20px;
+  
+}
+.hidden_content{
+  text-align:center;
+ width:60%;
+ color: darkgray;
+  margin:20px;
+  font-weight:400;
+  font-size:20px;
+}
+.div_buttons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+
+/*___________________________________________________________________________*/

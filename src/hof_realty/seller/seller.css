@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+#main_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+ 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow:scroll;
+  background: linear-gradient(#060f2b,#4C4177,#4C4177,#0D0A0B);
+}
+#container1 {
+  width: 100%;
+  min-height: 100vh;
+  /* background: linear-gradient(#141e30, #243b55); */
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
+}
+#container1{
+   max-height:3000px; 
+}
+#container1_form {
+  width: 30%;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6); */
+  border-radius: 10px;
+  padding: 30px;
+  max-height:2000px;
+}
+.forms {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.user-box {
+  position: relative;
+}
+.user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+input {
+  width: 300px;
+  padding: 5px 0;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.section_heading {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+#submit_back_setion {
+  display: flex;
+  max-height: 800vh;
+  align-items: center;
+  justify-content: center;
+}
+
+label{
+  margin-left:10px;
+}
+
+#continue_btn,
+#next_btn,
+#submit_btn{
+  margin: 20px;
+  padding: 10px 30px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #141e31;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+}
+
+#continue_btn:hover,
+#submit_btn:hover,
+#next_btn:hover{
+  background-color: #141e31;
+  color: white;
+}
+
+#property_info,#rest_info {
+  display: none;
+}
+#rest_info , #container1_form{
+    max-height:3000px;
+}
+
+#submit_btn {
+  font-size: 1rem;
+}
+
+.image-container {
+    display: flex;
+    width:100%;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items:flex-start;
+    flex-wrap: wrap;
+  }
+  .image-preview {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .image-preview .delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background:bisque;
+    color:black;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover{
+    border-radius: 40px;
+  }
+
+  textarea{
+    background:linear-gradient(rgba(54, 1, 33, 0.4),rgba(54, 72, 169, 0.4));
+  }
+
+  textarea:focus{
+    border-radius: 40px;
+    background-color: antiquewhite;
+  }
+
+  .forms {
+      background-color: rgba(12, 31, 86, 0.2);
+      backdrop-filter: blur(100px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  }
+
+  .forms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .user-box{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  #describe{
+    padding:20px 10px;
+  }
+  .congo_mssg{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+  }
+  .congo_mssg h1{
+    font-size: 33px;
+    font-weight: 550;
+    margin:20px;
+
+  }
+  .congo_mssg p{
+    width:60%;
+    color: #fff;
+    font-size:22px;
+    font-weight:400;
+  }
+  .congo_mssg a{
+    text-decoration: none;
+    color:#060f2b;
+    border:none;
+    margin: 20px;
+    padding: 5px 12px;
+    background-color: #fed88e;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  .congo_mssg button:hover{
+    background-color: #fff;
+  }
+@media screen and (max-width:1300px) {
+    #container1_form{
+        width:60%;
+    }
+    #forms{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+}
+ @media screen and (max-width:1150px) {
+    #container1_form {
+      width: 60%;
+      padding: 20px;
+    }
+ }
+  /* Styles for screens up to 768px */
+@media screen and (max-width: 768px) {
+
+    #container1_form {
+      width: 80%;
+      padding: 20px;
+    }
+  
+    input {
+      width: 100%;
+    }
+  
+    .image-container {
+      justify-content: center;
+    }
+  
+    .image-preview {
+      width: 150px;
+      height: 150px;
+    }
+  
+    #main_container {
+      overflow: auto;
+    }
+  }
+  /* Styles for screens up to 480px */
+  @media screen and (max-width: 480px) {
+  
+    #container1_form {
+      width: 90%;
+      padding: 10px;
+    }
+  
+    .section_heading {
+      font-size: 1.5rem;
+    }
+  
+    #submit_back_setion {
+      flex-direction: column;
+    }
+  
+    #continue_btn,
+    #next_btn,
+    #submit_btn {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  

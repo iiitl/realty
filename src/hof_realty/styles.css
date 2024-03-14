@@ -1,0 +1,624 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+ /*main*/
+@font-face {
+  font-family: "chopsic";
+  src: url(./font/Chopsic.otf);
+}
+@font-face {
+  font-family: "thunder";
+  src: url(./font/Thunder\ Kingdom.ttf);
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  scroll-behavior: smooth;
+  font-family: "Raleway", sans-serif;
+  background-color: #060f2b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#main_container {
+  max-width: 1048px;
+  height: 100%;
+  margin: 0px auto;
+  display: flex;
+  padding: 30px auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container1-wrapper {
+  min-height: 100vh;
+  position: relative;
+}
+
+#container1 {
+  width: 100%;
+  margin-top: 30px;
+  min-height: 80vh;
+  position: relative;
+  background-color: #060f2b;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#gradient-1 {
+  position: absolute;
+  width: 436.52px;
+  height: 544.07px;
+  background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
+  filter: blur(325px);
+  border-radius: 200px;
+  transform: rotate(47.46deg);
+  z-index: 10;
+}
+
+#about_ques {
+  text-align: center;
+  line-height: 40px;
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 30px;
+  z-index: 200;
+}
+
+#faq h1 {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#container1 p {
+  max-width: 60%;
+  text-align: center;
+  line-height: 27px;
+  font-size: 18px;
+  color: darkgrey;
+  font-weight: 200 !important;
+}
+
+#heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  max-width: 65%;
+  text-align: center;
+  font-size: 3.6rem;
+  margin-bottom: 25px;
+  z-index: 20;
+  width: 100%;
+  font-weight: 500;
+}
+
+.line {
+  width: 100%;
+  height: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.line span {
+  position: absolute;
+  left: 0;
+  min-width: 100%;
+}
+
+/*********VANSHIKA**********/
+#navbar {
+  border-radius: 999999px;
+  background-color: rgba(12, 31, 86, 0.2);
+  z-index: 9999;
+  position: sticky;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+}
+
+#navbar.active {
+  backdrop-filter: blur(20px);
+  box-shadow: rgba(44, 44, 44, 0.2) 0px 7px 29px 0px;
+}
+
+#navbar #logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.5rem;
+  font-family: "thunder";
+  cursor: default;
+  color: white;
+}
+
+.nav_link {
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 10px 15px;
+  border-radius: 40px;
+  border: 0px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  background: none;
+}
+
+.nav_link:hover {
+  background: linear-gradient(90deg, #1a2980 0%, #26d0ce 100%);
+}
+
+/********VAISHNAVI**********/
+
+#bitcoin {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  transform: rotate(-30deg);
+  animation: float 3s ease-in-out 0s infinite;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.6, 1);
+  opacity: 0;
+}
+#correct {
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: 200px;
+  left: -40px;
+  animation: float 3s ease-in-out 0s infinite;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.6, 1);
+  opacity: 0;
+}
+#arrow_btn_bottom {
+  background-color: #5fa4f8;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: 109vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#arrow_btn_bottom img {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+}
+#about {
+  margin-bottom: 100px;
+  padding: 25px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 100%;
+  position: relative;
+  min-height: 50vh;
+  border-radius: 10px;
+  border: 0.5px solid grey;
+  background-image: url(./image/about-bg.png);
+  background-position: center;
+  background-size: cover;
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+#about_ans {
+  color: rgb(249, 249, 249, 0.7);
+  max-width: 60%;
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: 1.2px;
+  line-height: 30px;
+  z-index: 200;
+}
+#faq {
+  background-color: #060f2b;
+  border-radius: 30px;
+  width: 100%;
+}
+#faq_list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  width: 100%;
+  gap: 20px;
+}
+
+#gradient-2 {
+  position: absolute;
+  width: 636.52px;
+  height: 544.07px;
+  right: 20%;
+  top: 10%;
+  border-radius: 200px;
+  z-index: 10;
+  background: linear-gradient(
+    207.77deg,
+    rgba(212, 183, 33, 0.4) 1.9%,
+    rgba(212, 33, 140, 0.4) 37.15%,
+    rgba(54, 72, 169, 0.4) 100.9%
+  );
+  filter: blur(454.375px);
+  transform: rotate(-20.37deg);
+  z-index: 400;
+}
+
+.card {
+  z-index: 1000;
+  height: 300px;
+  transition: transform 0.8s;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: rgba(12, 31, 86, 0.2);
+  backdrop-filter: blur(100px);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.card:hover {
+  border-radius: 30px;
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.card p {
+  color: #f3f3f3;
+}
+
+#connect_btn {
+  display: flex;
+  margin: 30px;
+  justify-content: space-around;
+  padding: 5px 20px;
+  align-items: center;
+  background-color: #fed88e;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+#connect_btn:hover {
+  border-radius: 30px;
+}
+
+#connect_btn img {
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+#connect_btn p {
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 5px;
+  color: #060f2b;
+}
+
+/* Scroll down Arrow */
+.scroll-down-btn {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: scrollDown 2s infinite;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+.btn_div{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  padding:20px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 5px;
+  color: #060f2b;
+}
+.seller_btn, .buyer_btn{
+  text-decoration:none;
+  padding:10px;
+  background-color: #fed88e;
+  color:white;
+  margin:10px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 5px;
+  color: #060f2b;
+  border-radius:20px;
+}
+.seller_btn:hover, .buyer_btn:hover{
+  background-color:white;
+
+}
+
+/* Animations */
+
+@keyframes scrollDown {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, 10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes scrollDown {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, 10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@media screen and (max-width: 1024px) {
+  #about {
+    max-width: 800px;
+  }
+  #about_ques {
+    line-height: 30px;
+    font-size: 3rem;
+  }
+  #about_ans {
+    max-width: 70%;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    line-height: 23px;
+  }
+  #faq {
+    background-color: #060f2b;
+    border-radius: 30px;
+    width: 100%;
+  }
+  #faq h1 {
+    line-height: 30px;
+    font-size: 3rem;
+  }
+  #faq_list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #heading {
+    max-width: 70%;
+    text-align: center;
+    font-size: 2.7rem;
+    margin-bottom: 25px;
+    z-index: 20;
+    width: 100%;
+    font-weight: 400;
+  }
+  .line {
+    height: 50px;
+  }
+  #bitcoin {
+    width: 120px;
+    height: 120px;
+  }
+  #correct {
+    width: 150px;
+    height: 150px;
+  }
+  #container1 p {
+    max-width: 60%;
+    text-align: center;
+    line-height: 22px;
+    font-size: 15px;
+    color: darkgrey;
+    font-weight: 150 !important;
+  }
+  #about {
+    max-width: 700px;
+  }
+  #about_ques {
+    line-height: 25px;
+    font-size: 2.5rem;
+    font-weight: 460;
+  }
+  #about_ans {
+    max-width: 80%;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    line-height: 19px;
+  }
+  #faq h1 {
+    line-height: 50px;
+    font-size: 2.5rem;
+    font-weight: 460;
+  }
+  #faq_list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    gap: 20px;
+  }
+  .card {
+    max-height: 280px;
+  }
+  .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  .card p {
+    font-size: 1rem;
+    color: #f3f3f3;
+  }
+  #connect_btn {
+    display: flex;
+    margin: 30px;
+    justify-content: space-around;
+    padding: 5px 12px;
+    align-items: center;
+    background-color: #fed88e;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  #connect_btn img {
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+  #connect_btn p {
+    font-size: 23px;
+    font-weight: bold;
+    margin-left: 5px;
+    color: #060f2b;
+  }
+  #navbar {
+    padding: 10px 25px;
+  }
+
+  #navbar #logo {
+    font-size: 1.2rem;
+  }
+
+  .nav_link {
+    padding: 6px 10px;
+    border-radius: 40px;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+@media screen and (max-width: 640px) {
+  #about {
+    max-width: 550px;
+  }
+  #bitcoin {
+    width: 110px;
+    height: 110px;
+  }
+  #correct {
+    width: 130px;
+    height: 130px;
+  }
+  .line {
+    height: 40px;
+  }
+  #heading {
+    max-width: 70%;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    z-index: 20;
+    width: 100%;
+    font-weight: 400;
+  }
+  #container1 p {
+    max-width: 70%;
+    text-align: center;
+    line-height: 23px;
+    font-size: 15px;
+    color: darkgrey;
+    font-weight: 200 !important;
+  }
+  #navbar {
+    padding: 10px 25px;
+  }
+
+  #navbar #logo {
+    font-size: 1.2rem;
+  }
+
+  .nav_link {
+    padding: 6px 10px;
+    border-radius: 40px;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+}
+@media screen and (max-width: 600px) {
+}
