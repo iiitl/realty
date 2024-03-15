@@ -143,8 +143,10 @@ contract Contract {
         return isListed[_nftID];
     }
     function cancelSale(uint256 _nftID) public {
-        require(1==1);
-       (bool success, ) = payable(buyer[_nftID]).call{value: address(this).balance}("");
+        require(msg.sender == seller || msg.sender == buyer[_nftID],"Only seller or buyer can use this method");
+        require(isListed[_nftID],"Property is not listed for sale");
+        IERC721(nftaddress).transferFrom(address(this), seller, _nftID);
+        isListed[_nftID] = false;
     }
 
     function retprice (uint256 _nftID) public view returns (uint256) {
