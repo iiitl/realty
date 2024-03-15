@@ -20,21 +20,21 @@ contract Contract {
         seller = _seller;
     }
     struct adds{
-        string memory city;
-        string memory country;
-        string memory addline;
+        string city;
+        string country;
+        string addline;
     }
     struct Property {
-       string memory name;
-       string memory email;
-       string memory phoneno;
+       string name;
+       string  email;
+       string phoneno;
        adds adds;
-       string memory proptype;
-       string memory amenities;
+       string  proptype;
+       string  amenities;
        uint256 sqfoot;
        uint256 bedno;
-       string memory img;
-       string memory descp;
+       string  img;
+       string  descp;
     }
 
     
