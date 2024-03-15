@@ -51,11 +51,11 @@ contract Contract {
     
     function list1(
         uint256 _nftID, 
-       string  _amenities,
+       string  memory _amenities,
        uint256 _sqfoot,
        uint256 _bedno,
-       string  _img,
-       string _descp,
+       string memory _img,
+       string memory _descp,
        uint256 _purchasePrice,
        uint256 _tokenID)public {
         IERC721(nftaddress).transferFrom(seller, address(this), _tokenID);
