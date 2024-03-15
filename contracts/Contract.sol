@@ -146,7 +146,7 @@ contract Contract {
         return isListed[_nftID];
     }
     function cancelSale(uint256 _nftID) public {
-        require(1==1);
+        // no need for require(1==1);
        (bool success, ) = payable(buyer[_nftID]).call{value: address(this).balance}("");
     }
 
