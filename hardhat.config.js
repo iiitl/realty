@@ -4,10 +4,21 @@ module.exports ={
   solidity: "0.8.17",
   networks:{
     hardhat :{},
-    polygon_mumbai:{
-      url:"https://polygon-mumbai.g.alchemy.com/v2/Gc_VlMr5WTe57ynQps7sKYAEFoqIqxfY",
-      accounts: [`0x${"e2b2fc0a72f1489e47c5dc05c2c46e77adbfeed2e0b5d11f64445d36d0ba9ebd"}`]
+    mumbai_polygon:{
+      url:"https://polygon-mumbai.g.alchemy.com/v2/ZbhCQ83vaSchFpSTIsJOHbeqsA_sjPzk",
+      accounts: [`15757a2dae66ec6da64ca0286fa8bda822183312b8ace298051796d048751ba2`],
+      gasPrice:2000000
+    },
+    optimism:{
+      url:"https://opt-sepolia.g.alchemy.com/v2/cgF1ofzIEn50ilq4ahnUu08CYGKnpUaC",
+      accounts: [`15757a2dae66ec6da64ca0286fa8bda822183312b8ace298051796d048751ba2`],
+      gasPrice:2000000
+    },
+    Arbitrum:{
+      url:"https://arb-sepolia.g.alchemy.com/v2/q5H8ozuIHQGI8jCVWw1bLiWj2HM2Ftyu",
+      accounts: [`15757a2dae66ec6da64ca0286fa8bda822183312b8ace298051796d048751ba2`],
+      gasPrice:2000000
     }
   },
-  gasPrice:200,
+ 
 }
