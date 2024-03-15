@@ -145,9 +145,24 @@ contract Contract {
     function listed(uint256 _nftID) public view returns(bool){
         return isListed[_nftID];
     }
+    
     function cancelSale(uint256 _nftID) public {
         // no need for require(1==1);
-       (bool success, ) = payable(buyer[_nftID]).call{value: address(this).balance}("");
+
+        require(isListed[_nftID], "The NFT is not listed for sale.");
+        
+        // Transfer the NFT back to the seller
+        IERC721(nftaddress).transferFrom(address(this), seller, _nftID);
+        
+        // Refund the purchase price to the buyer
+        address payable buyerAddress = payable(buyer[_nftID]);
+        uint256 refundAmount = purchasePrice[_nftID];
+        (bool success, ) = buyerAddress.call{value: refundAmount}("");
+        require(success, "Failed to refund the buyer.");
+        
+        // Reset the listing status and buyer address
+        isListed[_nftID] = false;
+        buyer[_nftID] = address(0);
     }
 
     function retprice (uint256 _nftID) public view returns (uint256) {
