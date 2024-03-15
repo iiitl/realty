@@ -1,11 +1,12 @@
+//SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
 interface IERC721 {
-    function transferFrom(
+    function transferFrom (
         address _from,
         address _to,
         uint256 _id
-    );
+    ) external; //Issue8 While importing this into other contracts it needs to be specified as external 
 }
 contract Contract {
     address public nftaddress;
@@ -18,25 +19,25 @@ contract Contract {
         nftaddress = _nftaddress;
         seller = _seller;
     }
-    struct adds{
-        string memory city;
-        string memory country;
-        string memory addline;
+    struct adds{ //Structs cannot have memory keyword inside them
+        string city;
+        string country;
+        string addline;
     }
-    struct Property {
-       string memory name;
-       string memory email;
-       string memory phoneno;
+    struct Property { // Issue2
+       string name;   // memory keyword cannot be used inside the struct
+       string email;
+       string phoneno;
        adds adds;
-       string memory proptype;
-       string memory amenities;
+       string proptype;
+       string amenities;
        uint256 sqfoot;
        uint256 bedno;
-       string memory img;
-       string memory descp;
+       string img;
+       string descp;
     }
 
-
+    
     mapping(uint256 => Property) public  metadata;
     modifier OnlySeller(){
         require(msg.sender == seller,"Only seller can use this method");
@@ -48,39 +49,35 @@ contract Contract {
         _;
     }
     
-     function list1(
-        uint256 _nftID,
-        string memory _amenities,
-        uint256 _sqfoot,
-        uint256 _bedno,
-        string memory _img,
-        string memory _descp,
-        uint256 _purchasePrice,
-        uint256 _tokenID
-    ) public {
+    function list1( // Issue1
+        uint256 _nftID, 
+       string memory _amenities, // As string can't be directly stored inside the blockchain unlike uint256, memory keyword is used
+       uint256 _sqfoot,
+       uint256 _bedno,
+       string memory _img,
+       string memory _descp,
+       uint256 _purchasePrice,
+       uint256 _tokenID)public {
         IERC721(nftaddress).transferFrom(seller, address(this), _tokenID);
         purchasePrice[_nftID] = _purchasePrice;
         isListed[_nftID] = true;
-        metadata[_nftID] = Property({
-            amenities: _amenities,
-            sqfoot: _sqfoot,
-            bedno: _bedno,
-            img: _img,
-            descp: _descp
-        });
-
-        index += 1;
+        metadata[_nftID].amenities = _amenities;
+        metadata[_nftID].sqfoot = _sqfoot;
+        metadata[_nftID].bedno = _bedno; 
+        metadata[_nftID].img = _img;
+        metadata[_nftID].descp = _descp;          
+        index+=1;   
     }
-
+    
     function list2(
         uint256 _nftID, 
         string memory _city,
         string memory _country,
         string memory _addline
-
+       
        )public {
-
-
+      
+        
         metadata[_nftID].adds.city = _city;
         metadata[_nftID].adds.country = _country;  
         metadata[_nftID].adds.addline = _addline;
@@ -91,31 +88,35 @@ contract Contract {
         string memory _email,
        string memory _proptype
        )public {
-
+         
         metadata[_nftID].name = _name;
         metadata[_nftID].email = _email;
         
         metadata[_nftID].proptype = _proptype;
-
+           
     }
     function declareBuyer(uint256 _nftID, address _buyer) public {
         buyer[_nftID] = _buyer;
     }
     receive() external payable {}
+    
 
+    function bought(uint256 _nftID,uint256 _tokenID) public payable onlyBuyer(_nftID) {//Issue3 : made payable
+      require(msg.value == purchasePrice[_nftID]); 
 
-    function bought(uint256 _nftID,uint256 _tokenID) public onlyBuyer(_nftID) {
-      require(msg.value == purchasePrice[_nftID]);
      (bool success, ) = (seller).call{value: address(this).balance}("");
-     isListed[_nftID] = false;
-     IERC721(nftaddress).transferFrom(address(this), buyer[_nftID], _tokenID);
+     require(success,"Transfer Failed"); // Check whether the transfer to seller is successful or not
+
+     IERC721(nftaddress).transferFrom(address(this), buyer[_nftID], _tokenID); // Transfer The NFT to the Buyer
+
+     isListed[_nftID] = false;//Update the listing status
     }
 
 
     function getBalance() public view returns(uint256) {
         return address(this).balance;
     }
-
+    
     function meta1(uint256 _nftID) private view returns(string memory,uint256,uint256,string memory,string memory) {
         return (
         metadata[_nftID].amenities,
@@ -143,8 +144,14 @@ contract Contract {
         return isListed[_nftID];
     }
     function cancelSale(uint256 _nftID) public {
-        require(1==1);
-       (bool success, ) = payable(buyer[_nftID]).call{value: address(this).balance}("");
+        require(msg.sender == seller, "Only seller can cancel the sale");
+        require(isListed[_nftID], "NFT is not listed for sale");
+
+        // Transfer the NFT back to the seller
+        IERC721(nftaddress).transferFrom(address(this), seller, _nftID);
+
+        // Set the listing status to false
+        isListed[_nftID] = false;
     }
 
     function retprice (uint256 _nftID) public view returns (uint256) {

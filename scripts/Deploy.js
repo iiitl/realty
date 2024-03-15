@@ -1,25 +1,24 @@
-const { expect } = require('chai');
 const { ethers } = require('hardhat');
-const tokens = (n) => {
-    return ethers.utils.parseUnits(n.toString(), 'ether')
-}
 
 async function main() {
+    const [deployer] = await ethers.getSigners();
 
-    const RealEstate =await ethers.getContractFactory('RealEstate');
+    // Deploy RealEstate contract
+    const RealEstate = await ethers.getContractFactory('RealEstate');
     const realEstate = await RealEstate.deploy();
     await realEstate.deployed();
+    console.log('RealEstate contract deployed to:', realEstate.address);
 
-    console.log('realEstate address' + realEstate.address);
+    // Deploy Contract (renamed from your other contract)
+    const Contract = await ethers.getContractFactory('Contract');
+    const contract = await Contract.deploy(realEstate.address, deployer.address);
+    await contract.deployed();
+    console.log('Contract deployed to:', contract.address);
+
     console.log("Mining starting");
-
-    
-
-   
 }
 
 main().catch((error) => {
     console.error(error);
     process.exitCode = 1;
-  });
-  
+});
