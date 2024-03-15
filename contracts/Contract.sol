@@ -6,7 +6,7 @@ interface IERC721 {
         address _from,
         address _to,
         uint256 _id
-    );
+    )external;
 }
 contract Contract {
     address public nftaddress;
@@ -101,11 +101,14 @@ contract Contract {
     receive() external payable {}
     
 
-    function bought(uint256 _nftID,uint256 _tokenID) public onlyBuyer(_nftID) {
+    function bought(uint256 _nftID,uint256 _tokenID) public payable onlyBuyer(_nftID) {
       require(msg.value == purchasePrice[_nftID]);
+
      (bool success, ) = (seller).call{value: address(this).balance}("");
-     isListed[_nftID] = false;
+     require(success,"Transfer Failed");
+     
      IERC721(nftaddress).transferFrom(address(this), buyer[_nftID], _tokenID);
+     isListed[_nftID] = false;
     }
 
 
@@ -140,8 +143,10 @@ contract Contract {
         return isListed[_nftID];
     }
     function cancelSale(uint256 _nftID) public {
-        require(1==1);
-       (bool success, ) = payable(buyer[_nftID]).call{value: address(this).balance}("");
+        require(msg.sender == seller || msg.sender == buyer[_nftID],"Only seller or buyer can use this method");
+        require(isListed[_nftID],"Property is not listed for sale");
+        IERC721(nftaddress).transferFrom(address(this), seller, _nftID);
+        isListed[_nftID] = false;
     }
 
     function retprice (uint256 _nftID) public view returns (uint256) {
