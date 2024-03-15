@@ -103,6 +103,7 @@ contract Contract {
 
     function bought(uint256 _nftID,uint256 _tokenID) public payable onlyBuyer(_nftID) {
       require(msg.value == purchasePrice[_nftID]);
+      address payable sellerAddress = payable(seller[_nftID]);
 
      (bool success, ) = (seller).call{value: address(this).balance}("");
      require(success,"Transfer Failed");
