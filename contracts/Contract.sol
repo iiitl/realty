@@ -52,10 +52,10 @@ contract Contract {
     function list1(
         uint256 _nftID, 
     // memory used to pass strings that won't be stored after function ends
-       string  memory _amenities,
+       string memory _amenities,
        uint256 _sqfoot,
        uint256 _bedno,
-       string  memory _img,
+       string memory _img,
        string memory _descp,
        uint256 _purchasePrice,
        uint256 _tokenID)public {
