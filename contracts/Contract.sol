@@ -116,7 +116,7 @@ contract Contract {
         return address(this).balance;
     }
     
-    function meta1(uint256 _nftID) private view returns(string memory,uint256,uint256,string memory,string memory) {
+    function meta1(uint256 _nftID) public view returns(string memory,uint256,uint256,string memory,string memory) {
         return (
         metadata[_nftID].amenities,
         metadata[_nftID].sqfoot,
@@ -124,10 +124,10 @@ contract Contract {
         metadata[_nftID].img,
         metadata[_nftID].descp);
     }
-    function meta2(uint256 _nftID) private view returns(string memory,string memory,string memory) {
+    function meta2(uint256 _nftID) public view returns(string memory,string memory,string memory) {
         return (metadata[_nftID].adds.city,metadata[_nftID].adds.country,metadata[_nftID].adds.addline);
     }
-    function meta3(uint256 _nftID) private view returns(string memory,string memory,string memory) {
+    function meta3(uint256 _nftID) public view returns(string memory,string memory,string memory) {
         return (metadata[_nftID].name,
         metadata[_nftID].email,
         metadata[_nftID].proptype
