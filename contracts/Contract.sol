@@ -108,7 +108,9 @@ contract Contract {
         require(msg.value == purchasePrice[_nftID], "Incorrect purchase price.");
         require(isListed[_nftID] == true, "NFT is not listed for sale.");
 
-        (bool success, ) = seller.call{value: msg.value}("");
+        //make seller address payable
+        address payable sellerAddress = payable(seller);
+        (bool success, ) = sellerAddress.call{value: msg.value}("");
         require(success, "Transfer failed.");
 
         isListed[_nftID] = false;
