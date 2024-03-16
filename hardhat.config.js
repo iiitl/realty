@@ -4,9 +4,9 @@ module.exports ={
   solidity: "0.8.17",
   networks:{
     hardhat :{},
-    polygon_mumbai:{
-      url:"https://polygon-mumbai.g.alchemy.com/v2/Gc_VlMr5WTe57ynQps7sKYAEFoqIqxfY",
-      accounts: [`0x${"e2b2fc0a72f1489e47c5dc05c2c46e77adbfeed2e0b5d11f64445d36d0ba9ebd"}`]
+    sepolia:{
+      url:"https://eth-sepolia.g.alchemy.com/v2/EgjZcp5BNaLqQdxSub6IBTVV5uJTxv5q",
+      accounts: [`af62d76cc36a60e1444cc839eb645a3684d40f9f4241b3033eea26c282067fdb`]
     }
   },
   gasPrice:200,
