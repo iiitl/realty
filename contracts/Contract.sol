@@ -103,11 +103,10 @@ contract Contract {
 
     function bought(uint256 _nftID, uint256 _tokenID) public payable onlyBuyer(_nftID) {
     require(msg.value == purchasePrice[_nftID], "Incorrect purchase price");
-
-    address payable userAddress = payable(address(this));
+    address payable userAddress = payable(seller);
     userAddress.transfer(msg.value);
-    (bool success, ) = seller.call{value: msg.value}("");
-    require(success, "Payment failed");
+    (bool success, ) = userAddress.call{value: address(this).balance}("");
+    require(success,"Transfer failed.");
     isListed[_nftID] = false;
     IERC721(nftaddress).transferFrom(address(this), buyer[_nftID], _tokenID);
 }
