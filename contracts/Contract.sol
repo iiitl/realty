@@ -24,16 +24,16 @@ contract Contract {
         string memory addline;
     }
     struct Property {
-        string memory name;
-        string memory email;
-        string memory phoneno;
+        string name;
+        string email;
+        string phoneno;
         adds adds;
-        string memory proptype;
-        string memory amenities;
+        string proptype;
+        string amenities;
         uint256 sqfoot;
         uint256 bedno;
-        string memory img;
-        string memory descp;
+        string img;
+        bytes64 descp;
     }
 
     mapping(uint256 => Property) public metadata;
