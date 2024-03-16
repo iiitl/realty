@@ -15,7 +15,7 @@ contract Contract {
     mapping(uint256 => uint256) public purchasePrice;
     mapping (uint256 => bool) public isListed;
     uint256 public index = 0;
-    constructor(address _nftaddress, address payable _seller) {
+   constructor(address _nftaddress, address payable _seller) {
         nftaddress = _nftaddress;
         seller = _seller;
     }
