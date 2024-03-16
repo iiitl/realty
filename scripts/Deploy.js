@@ -1,19 +1,21 @@
-const { expect } = require('chai');
-const { ethers } = require('hardhat');
+const {ethers: ethershardhat } = require('hardhat');
+const { ethers } = require('ethers');
 const tokens = (n) => {
     return ethers.utils.parseUnits(n.toString(), 'ether')
 }
 
 async function main() {
-    const [deployer] = await ethers.getSigners(); 
+    const provider = new ethers.providers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/Fk0yMyij-22i7dHpRn2LqeIVgSELSkPQ");
+    
+    const [deployer] = await ethershardhat.getSigners(); 
 
-    const RealEstate =await ethers.getContractFactory('RealEstate');
-    const realEstate = await RealEstate.deploy();
+    const RealEstate =await ethershardhat.getContractFactory('RealEstate');
+    const realEstate = await RealEstate.deploy({ gasPrice: 4000000000 });
     await realEstate.deployed();
     console.log('realEstate address: ' + realEstate.address);
 
-    const Contract = await ethers.getContractFactory('Contract');
-    const contract = await Contract.deploy(realEstate.address, deployer.address);
+    const Contract = await ethershardhat.getContractFactory('Contract');
+    const contract = await Contract.deploy(realEstate.address, deployer.address,{ gasPrice: 4000000000 });
     await contract.deployed();
     console.log('Contract address: ' + contract.address);
 
