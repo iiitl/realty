@@ -142,12 +142,10 @@ contract Contract {
     function cancelSale(uint256 _nftID) public {
         require(msg.sender == seller || msg.sender == buyer[_nftID],"Only seller or buyer can use this method");
         require(isListed[_nftID],"Property is not listed for sale");
-        try IERC721(nftaddress).transferFrom(address(this), seller, _nftID) {
-        isListed[_nftID] = false;
-        return true;
-        } catch {
-        return false;
-        }
+       bool transferSuccess = IERC721(nftaddress).transferFrom(address(this), seller, _nftID);
+    require(transferSuccess, "NFT transfer failed");
+    
+    isListed[_nftID] = false;
 
     }
 
