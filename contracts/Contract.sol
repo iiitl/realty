@@ -6,7 +6,7 @@ interface IERC721 {
         address _from,
         address _to,
         uint256 _id
-    );
+    )external;
 }
 contract Contract {
     address public nftaddress;
@@ -102,18 +102,18 @@ contract Contract {
     receive() external payable {}
     
 
+    
     function bought(uint256 _nftID,uint256 _tokenID) public payable onlyBuyer(_nftID) {  //make the function payable to accept ether
-        require(msg.value == purchasePrice[_nftID]);
+        
+        require(msg.value == purchasePrice[_nftID], "Incorrect purchase price.");
+        require(isListed[_nftID] == true, "NFT is not listed for sale.");
 
-        // Transfer the funds to the contract
-        address payable contractAddress = payable(address(this));
-        contractAddress.transfer(msg.value);        
+        (bool success, ) = seller.call{value: msg.value}("");
+        require(success, "Transfer failed.");
 
-        (bool success, ) = (seller).call{value: address(this).balance}("");
         isListed[_nftID] = false;
-        IERC721(nftaddress).transferFrom(address(this), buyer[_nftID], _tokenID);  //transfer the nft to the buyer
+        IERC721(nftaddress).transferFrom(address(this), msg.sender, _tokenID);  //transfer the nft to the buyer
     }
-
 
     function getBalance() public view returns(uint256) {
         return address(this).balance;
