@@ -1,11 +1,16 @@
 const {ethers: ethershardhat } = require('hardhat');
 const { ethers } = require('ethers');
+require('dotenv').config();
+
 const tokens = (n) => {
     return ethers.utils.parseUnits(n.toString(), 'ether')
 }
 
 async function main() {
-    const provider = new ethers.providers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/Fk0yMyij-22i7dHpRn2LqeIVgSELSkPQ");
+    const apiKey = process.env.API_KEY;
+
+
+    const provider = new ethers.providers.JsonRpcProvider(apiKey);
     
     const [deployer] = await ethershardhat.getSigners(); 
 
