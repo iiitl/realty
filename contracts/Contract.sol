@@ -9,6 +9,27 @@ interface IERC721 {
     );
 }
 contract Contract {
+
+   address[] public sellers; // to store addresses of sellers
+    mapping(address => string) public sellerNames; // to associate seller name with address
+    function addSeller(string memory name) public {
+        require(bytes(name).length > 0, "Name cannot be empty");
+        sellers.push(msg.sender);
+        sellerNames[msg.sender] = name;
+    }
+
+    function getAllSellers() public view returns (address[] memory, string[] memory) {
+        uint256 sellerCount = sellers.length;
+        address[] memory sellerAddresses = new address[](sellerCount);
+        string[] memory sellerNamesArray = new string[](sellerCount);
+        for (uint256 i = 0; i < sellerCount; i++) {
+            sellerAddresses[i] = sellers[i];
+            sellerNamesArray[i] = sellerNames[sellers[i]];
+        }
+        return (sellerAddresses, sellerNamesArray);
+    }
+
+
     address public nftaddress;
     address payable public seller;
     mapping(uint256 => address) public buyer;
