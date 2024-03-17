@@ -142,6 +142,7 @@ contract Contract {
     function listed(uint256 _nftID) public view returns(bool){
         return isListed[_nftID];
     }
+    event SaleCancelled(uint256 indexed nftID);
     function cancelSale(uint256 _nftID) public {
       require(msg.sender == seller || msg.sender == buyer[_nftID], "Only seller or buyer can cancel the sale");
     require(isListed[_nftID], "Property is not listed for sale");
@@ -150,6 +151,7 @@ contract Contract {
     if (msg.sender == buyer[_nftID]) {
         seller.transfer(purchasePrice[_nftID]);
     }
+    emit SaleCancelled(_nftID);
     }
     function retprice (uint256 _nftID) public view returns (uint256) {
         return purchasePrice[_nftID];
