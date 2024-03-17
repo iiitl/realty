@@ -25,18 +25,17 @@ contract Contract {
         string memory addline;
     }
     struct Property {
-       string memory name;
-       string memory email;
-       string memory phoneno;
-       adds adds;
-       string memory proptype;
-       string memory amenities;
+       string name;
+       string email;
+       string phoneno;
+       Adds adds;
+       string proptype;
+       string amenities;
        uint256 sqfoot;
        uint256 bedno;
-       string memory img;
-       string memory descp;
+       string img;
+       string descp;
     }
-
     
     mapping(uint256 => Property) public  metadata;
     modifier OnlySeller(){
