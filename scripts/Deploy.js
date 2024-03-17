@@ -21,7 +21,14 @@ async function main() {
     console.log('Contract address: ' + contract.address);
 
 
-    
+     // Call getAllSellers function
+    const [sellerAddresses, sellerNames] = await contract.getAllSellers();
+    console.log('Retrieved seller addresses:', sellerAddresses);
+    console.log('Retrieved seller names:', sellerNames);
+
+    for (let i = 0; i < sellerNames.length; i++) {
+        console.log(`Seller ${i + 1}: ${sellerNames[i]}`);
+    }
 
    
 }
