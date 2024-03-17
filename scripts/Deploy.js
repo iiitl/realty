@@ -14,6 +14,14 @@ async function main() {
     console.log("Mining starting");
 
     
+    const Contract = await ethers.getContractFactory('Contract');
+    const contract = await Contract.deploy(realEstate.address, IERC721); 
+    await contract.deployed();
+
+    console.log('Contract address: ' + contract.address);
+
+
+    
 
    
 }
