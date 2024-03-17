@@ -7,7 +7,7 @@ const tokens = (n) => {
 async function main() {
     
     const Contract = await ethers.getContractFactory('Contract');
-    const RealEstate = await ethers.getContractFactory('RealEstate');
+    
 
     
     const contract = await Contract.deploy();
