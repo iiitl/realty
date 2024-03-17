@@ -3,7 +3,6 @@
   "version": "7.0.0",
   "description": "Practice for real state main project",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,7 +12,7 @@
     "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
-    "hardhat": "^2.14.0"
+    "hardhat": "^2.22.1"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.3",
