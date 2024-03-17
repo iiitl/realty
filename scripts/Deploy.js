@@ -5,21 +5,24 @@ const tokens = (n) => {
 }
 
 async function main() {
-
-    const RealEstate =await ethers.getContractFactory('RealEstate');
-    const realEstate = await RealEstate.deploy();
-    await realEstate.deployed();
-
-    console.log('realEstate address' + realEstate.address);
-    console.log("Mining starting");
+    
+    const Contract = await ethers.getContractFactory('Contract');
+    const RealEstate = await ethers.getContractFactory('RealEstate');
 
     
+    const contract = await Contract.deploy();
+    await contract.deployed();
+    console.log('Contract deployed to:', contract.address);
 
-   
+  
+    const realEstate = await RealEstate.deploy();
+    await realEstate.deployed();
+    console.log('RealEstate deployed to:', realEstate.address);
 }
 
-main().catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-  });
-  
+main()
+    .then(() => process.exit(0))
+    .catch(error => {
+        console.error(error);
+        process.exit(1);
+    });
