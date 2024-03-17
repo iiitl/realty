@@ -108,6 +108,12 @@ contract Contract {
      IERC721(nftaddress).transferFrom(address(this), buyer[_nftID], _tokenID);
     }
 
+    function withdraw() public onlySeller {
+    uint256 balance = address(this).balance;
+    (bool success, ) = seller.call{value: balance}("");
+    require(success, "Transfer failed.");
+}
+
 
     function getBalance() public view returns(uint256) {
         return address(this).balance;
