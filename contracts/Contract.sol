@@ -48,25 +48,27 @@ contract Contract {
         _;
     }
     
-    function list1(
-        uint256 _nftID, 
-       string  _amenities,
-       uint256 _sqfoot,
-       uint256 _bedno,
-       string  _img,
-       string _descp,
-       uint256 _purchasePrice,
-       uint256 _tokenID)public {
-        IERC721(nftaddress).transferFrom(seller, address(this), _tokenID);
-        purchasePrice[_nftID] = _purchasePrice;
-        isListed[_nftID] = true;
-        metadata[_nftID].amenities = _amenities;
-        metadata[_nftID].sqfoot = _sqfoot;
-        metadata[_nftID].bedno = _bedno; 
-        metadata[_nftID].img = _img;
-        metadata[_nftID].descp = _descp;          
-        index+=1;   
-    }
+   function list1(
+    uint256 _nftID, 
+    string calldata _amenities,
+    uint256 _sqfoot,
+    uint256 _bedno,
+    string calldata _img,
+    string calldata _descp,
+    uint256 _purchasePrice,
+    uint256 _tokenID
+) public {
+    IERC721(nftaddress).transferFrom(seller, address(this), _tokenID);
+    purchasePrice[_nftID] = _purchasePrice;
+    isListed[_nftID] = true;
+    Property storage property = metadata[_nftID];
+    property.amenities = _amenities;
+    property.sqfoot = _sqfoot;
+    property.bedno = _bedno; 
+    property.img = _img;
+    property.descp = _descp;          
+    index += 1;   
+}
     
     function list2(
         uint256 _nftID, 
