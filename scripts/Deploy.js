@@ -6,20 +6,23 @@ const tokens = (n) => {
 
 async function main() {
 
-    const RealEstate =await ethers.getContractFactory('RealEstate');
+    let [seller] = await ethers.getSigners();
+
+    const RealEstate = await ethers.getContractFactory('RealEstate');
     const realEstate = await RealEstate.deploy();
     await realEstate.deployed();
 
     console.log('realEstate address' + realEstate.address);
-    console.log("Mining starting");
 
+    const Contract = await ethers.getContractFactory('Contract');
     
-
-   
+     
+  
 }
 
 main().catch((error) => {
     console.error(error);
     process.exitCode = 1;
-  });
+});
+
   
