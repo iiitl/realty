@@ -20,16 +20,33 @@ async function main() {
 
     console.log('Contract address: ' + contract.address);
 
+      // Add sellers
+    await addSellers(contract);
 
-     // Call getAllSellers function
+    // Retrieve and display seller names
+    await displaySellerNames(contract);
+
+    console.log("Mining starting");
+    }
+
+    async function addSellers(contract) {
+  // addSeller function to add some sellers
+    await contract.addSeller("Seller1");
+    await contract.addSeller("Seller2");
+    await contract.addSeller("Seller3");
+    console.log('Sellers added successfully');
+    }
+
+    async function displaySellerNames(contract) {
+    // Call getAllSellers function in displaySellerNames function
     const [sellerAddresses, sellerNames] = await contract.getAllSellers();
     console.log('Retrieved seller addresses:', sellerAddresses);
     console.log('Retrieved seller names:', sellerNames);
 
+    console.log('Displaying seller names:');
     for (let i = 0; i < sellerNames.length; i++) {
         console.log(`Seller ${i + 1}: ${sellerNames[i]}`);
     }
-
    
 }
 
